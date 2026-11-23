@@ -1,0 +1,513 @@
+/* ===== الألوان ===== */
+:root {
+  --bg: #070d13;
+  --panel: #0f1c27;
+  --teal: #4fb8c4;
+  --text: #eef4f6;
+  --gray: #86a3b1;
+  --border: rgba(79, 184, 196, 0.25);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  color: var(--text);
+  font-family: Tajawal, Tahoma, sans-serif;
+  font-size: 16px;
+  background-color: var(--bg);
+  background-image:
+    radial-gradient(800px 500px at 85% -100px, rgba(79, 184, 196, 0.16), transparent 70%),
+    linear-gradient(rgba(120, 200, 215, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(120, 200, 215, 0.04) 1px, transparent 1px);
+  background-size: auto, 40px 40px, 40px 40px;
+}
+
+.container {
+  max-width: 820px;
+  margin: 0 auto;
+  padding: 32px 16px 60px;
+}
+
+/* الشاشات */
+.screen {
+  display: none;
+}
+
+.screen.active {
+  display: block;
+  animation: fadeIn 0.35s ease;
+}
+
+/* ===== البداية ===== */
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--gray);
+  font-family: Lalezar, Tahoma, sans-serif;
+  font-size: 22px;
+}
+
+.brand img {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  border: 2px solid var(--teal);
+  object-fit: cover;
+}
+
+h1 {
+  font-family: Lalezar, Tahoma, sans-serif;
+  font-weight: normal;
+  font-size: 96px;
+  line-height: 0.95;
+  margin: 28px 0 0;
+}
+
+.line {
+  width: 110px;
+  height: 4px;
+  background: var(--teal);
+  margin: 22px 0;
+}
+
+.lead {
+  color: #c9d9e0;
+  font-size: 18px;
+  line-height: 1.8;
+  margin: 0 0 28px;
+}
+
+.preview {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 30px;
+}
+
+.preview img {
+  width: 76px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  filter: grayscale(0.5);
+}
+
+/* ===== الأزرار ===== */
+.btn,
+.btn-ghost {
+  font-family: Tajawal, sans-serif;
+  font-size: 17px;
+  font-weight: 800;
+  border-radius: 12px;
+  padding: 14px 34px;
+  cursor: pointer;
+  transition: transform 0.15s, background 0.2s;
+}
+
+.btn {
+  border: none;
+  background: var(--teal);
+  color: #07121a;
+}
+
+.btn:hover {
+  background: #6fd3de;
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--text);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.btn-ghost:hover {
+  border-color: var(--teal);
+}
+
+.btn:active,
+.btn-ghost:active {
+  transform: scale(0.96);
+}
+
+/* ===== المواجهات ===== */
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.question {
+  font-family: Lalezar, Tahoma, sans-serif;
+  font-size: 40px;
+}
+
+.progress {
+  color: var(--gray);
+  font-weight: 700;
+}
+
+.progress-line {
+  height: 4px;
+  background: var(--panel);
+  border-radius: 4px;
+  margin: 12px 0 24px;
+  overflow: hidden;
+}
+
+.progress-line i {
+  display: block;
+  height: 100%;
+  background: var(--teal);
+  transition: width 0.3s;
+}
+
+.versus {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 16px;
+}
+
+.vs {
+  font-family: Lalezar, Tahoma, sans-serif;
+  font-size: 26px;
+  color: var(--gray);
+}
+
+.fighter {
+  position: relative;
+  padding: 0;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  overflow: hidden;
+  background: var(--panel);
+  cursor: pointer;
+  aspect-ratio: 3 / 4;
+  transition: transform 0.2s, border-color 0.2s;
+}
+
+.fighter img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.fighter::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(7, 13, 19, 0.95), transparent 55%);
+}
+
+.fighter .name {
+  position: absolute;
+  bottom: 14px;
+  right: 16px;
+  z-index: 1;
+  font-family: Lalezar, Tahoma, sans-serif;
+  font-size: 30px;
+  color: #fff;
+}
+
+.fighter:hover {
+  border-color: var(--teal);
+  transform: translateY(-3px);
+}
+
+.fighter.picked {
+  border: 2px solid var(--teal);
+  transform: scale(1.03);
+}
+
+.fighter.lost {
+  opacity: 0.35;
+  transform: scale(0.96);
+}
+
+#bothBtn {
+  display: block;
+  margin: 22px auto 0;
+}
+
+/* ===== النتيجة ===== */
+.small-title {
+  color: var(--teal);
+  font-weight: 800;
+  margin: 0;
+}
+
+h2 {
+  font-family: Lalezar, Tahoma, sans-serif;
+  font-weight: normal;
+  font-size: 56px;
+  margin: 0 0 20px;
+}
+
+.winner {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  gap: 18px;
+  padding: 16px;
+  background: var(--panel);
+  border: 2px solid var(--teal);
+  border-radius: 20px;
+}
+
+.winner img {
+  width: 150px;
+  height: 190px;
+  object-fit: cover;
+  border-radius: 14px;
+}
+
+.winner-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.winner .tag {
+  color: var(--teal);
+  font-weight: 800;
+}
+
+.winner .name {
+  font-family: Lalezar, Tahoma, sans-serif;
+  font-size: 44px;
+  line-height: 1;
+}
+
+.winner .score {
+  color: var(--gray);
+  font-size: 14px;
+}
+
+.big-rank {
+  position: absolute;
+  left: 22px;
+  bottom: 6px;
+  font-family: Lalezar, Tahoma, sans-serif;
+  font-size: 110px;
+  line-height: 1;
+  color: rgba(255, 255, 255, 0.12);
+}
+
+.ranking {
+  list-style: none;
+  padding: 0;
+  margin: 14px 0 0;
+  display: grid;
+  gap: 10px;
+}
+
+.ranking li {
+  display: grid;
+  grid-template-columns: 40px 56px 1fr auto;
+  align-items: center;
+  gap: 14px;
+  padding: 10px 14px;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+}
+
+.ranking .num {
+  font-family: Lalezar, Tahoma, sans-serif;
+  font-size: 30px;
+  color: var(--gray);
+  text-align: center;
+}
+
+.ranking img {
+  width: 56px;
+  height: 56px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.ranking .name {
+  font-family: Lalezar, Tahoma, sans-serif;
+  font-size: 24px;
+}
+
+.ranking .points {
+  color: var(--gray);
+  font-size: 14px;
+}
+
+.buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 24px;
+}
+
+/* ===== الشهادة ===== */
+.back {
+  background: none;
+  border: none;
+  color: var(--gray);
+  font-family: Tajawal, sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  padding: 0;
+  margin-bottom: 14px;
+}
+
+.back:hover {
+  color: var(--teal);
+}
+
+.step {
+  color: var(--teal);
+  font-weight: 800;
+  margin: 0 0 10px;
+}
+
+.picker {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 22px;
+}
+
+.picker button {
+  width: 92px;
+  padding: 0;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  overflow: hidden;
+  background: var(--panel);
+  cursor: pointer;
+  color: var(--text);
+  font-family: Tajawal, sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.picker img {
+  width: 100%;
+  height: 92px;
+  object-fit: cover;
+  display: block;
+  filter: grayscale(0.6);
+}
+
+.picker span {
+  display: block;
+  padding: 6px 4px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.picker button.on {
+  border: 2px solid var(--teal);
+}
+
+.picker button.on img {
+  filter: none;
+}
+
+#nameInput {
+  width: 100%;
+  max-width: 360px;
+  padding: 14px 16px;
+  margin-bottom: 22px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: var(--panel);
+  color: var(--text);
+  font-family: Tajawal, sans-serif;
+  font-size: 17px;
+  outline: none;
+}
+
+#nameInput:focus {
+  border-color: var(--teal);
+}
+
+.titles {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.titles button {
+  font-family: Tajawal, sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  padding: 10px 16px;
+  border-radius: 99px;
+  border: 1px solid var(--border);
+  background: var(--panel);
+  color: var(--text);
+  cursor: pointer;
+}
+
+.titles button.on {
+  background: var(--teal);
+  border-color: var(--teal);
+  color: #07121a;
+}
+
+#certCanvas {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 14px;
+  border: 1px solid var(--border);
+}
+
+/* ===== نافذة الصورة ===== */
+#imagePopup {
+  position: fixed;
+  inset: 0;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  padding: 20px;
+  background: rgba(4, 9, 14, 0.94);
+}
+
+#imagePopup[hidden] {
+  display: none;
+}
+
+#imagePopup img {
+  max-width: 100%;
+  max-height: 72vh;
+  border-radius: 12px;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: none; }
+}
+
+/* ===== الجوال ===== */
+@media (max-width: 600px) {
+  h1 { font-size: 64px; }
+  .question { font-size: 30px; }
+  .vs { font-size: 18px; }
+  .versus { gap: 8px; }
+  .fighter .name { font-size: 22px; right: 10px; }
+  .winner img { width: 110px; height: 140px; }
+  .winner .name { font-size: 34px; }
+  .big-rank { font-size: 80px; }
+  .preview img { width: 56px; height: 74px; }
+  .picker button { width: calc(33.33% - 7px); }
+  .picker img { height: 84px; }
+}

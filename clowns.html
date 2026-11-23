@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>توب المهرجين | اوتلاو</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Lalezar&family=Tajawal:wght@500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="clowns.css">
+</head>
+<body>
+
+  <div class="container">
+
+    <!-- البداية -->
+    <section id="start" class="screen active">
+      <div class="brand">
+        <img src="logo.jpg" alt="Outlaw">
+        <span>اوتلاو</span>
+      </div>
+
+      <h1>توب<br>المهرجين</h1>
+      <div class="line"></div>
+      <p class="lead">بيطلع لك كل مرة مهرجين، اختار مين أكبر مهرج فيهم.<br>وفي الأخير يطلع لك ترتيبك وصورة تنشرها.</p>
+
+      <div class="preview" id="preview"></div>
+
+      <div class="buttons">
+        <button class="btn" id="startBtn">ابدأ</button>
+        <button class="btn-ghost" id="certBtn1">شهادة تهريج</button>
+      </div>
+    </section>
+
+    <!-- المواجهات -->
+    <section id="battle" class="screen">
+      <div class="top-bar">
+        <span class="question">مين أكبر مهرج؟</span>
+        <span class="progress" id="progress"></span>
+      </div>
+      <div class="progress-line"><i id="progressFill"></i></div>
+
+      <div class="versus">
+        <button class="fighter" id="left">
+          <img alt="">
+          <span class="name"></span>
+        </button>
+
+        <span class="vs">ضد</span>
+
+        <button class="fighter" id="right">
+          <img alt="">
+          <span class="name"></span>
+        </button>
+      </div>
+
+      <button class="btn-ghost" id="bothBtn">الاثنين مهرجين</button>
+    </section>
+
+    <!-- النتيجة -->
+    <section id="result" class="screen">
+      <p class="small-title">ترتيبك</p>
+      <h2>توب المهرجين</h2>
+
+      <div class="winner" id="winner">
+        <img alt="">
+        <div class="winner-info">
+          <span class="tag">ملك المهرجين</span>
+          <span class="name"></span>
+          <span class="score"></span>
+        </div>
+        <span class="big-rank">1</span>
+      </div>
+
+      <ol class="ranking" id="ranking"></ol>
+
+      <div class="buttons">
+        <button class="btn" id="saveBtn">حمّل صورة النتيجة</button>
+        <button class="btn-ghost" id="againBtn">عيدها</button>
+        <button class="btn-ghost" id="certBtn2">شهادة تهريج</button>
+      </div>
+    </section>
+
+    <!-- الشهادة -->
+    <section id="cert" class="screen">
+      <button class="back" id="backBtn">رجوع</button>
+      <h2>شهادة تهريج</h2>
+      <p class="lead">اختار المهرج واكتب اسمه واختار اللقب، ويطلع له شهادة رسمية من اوتلاو.</p>
+
+      <p class="step">المهرج</p>
+      <div class="picker" id="picker"></div>
+
+      <p class="step">اسمه</p>
+      <input type="text" id="nameInput" maxlength="20" placeholder="اكتب اسم المهرج">
+
+      <p class="step">اللقب</p>
+      <div class="titles" id="titles"></div>
+
+      <canvas id="certCanvas" width="1200" height="630"></canvas>
+
+      <div class="buttons">
+        <button class="btn" id="certSaveBtn">حمّل الشهادة</button>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- تطلع إذا ما اشتغل التحميل -->
+  <div id="imagePopup" hidden>
+    <p>اضغط مطوّل على الصورة واحفظها</p>
+    <img id="popupImg" alt="">
+    <button class="btn-ghost" id="closePopup">إغلاق</button>
+  </div>
+
+  <script src="clowns.js"></script>
+</body>
+</html>
