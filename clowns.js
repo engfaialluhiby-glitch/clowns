@@ -4,11 +4,11 @@
 
 // المهرجين (الصور من مجلد characters)
 const clowns = [
-  { img: "characters/42.jpg" },
-  { img: "characters/32.jpg" },
-  { img: "characters/11.jpg" },
-  { img: "characters/07.jpg" },
-  { img: "characters/18.jpg" },
+  { img: "../outlaw/characters/42.jpg" },
+  { img: "../outlaw/characters/32.jpg" },
+  { img: "../outlaw/characters/11.jpg" },
+  { img: "../outlaw/characters/07.jpg" },
+  { img: "../outlaw/characters/18.jpg" },
 ];
 
 
@@ -204,7 +204,7 @@ document.getElementById("saveBtn").addEventListener("click", async () => {
   const ctx = canvas.getContext("2d");
 
   const imgs = await Promise.all(finalOrder.slice(0, 3).map(c => loadImage(c.img)));
-  const logo = await loadImage("logo.jpg");
+  const logo = await loadImage("../outlaw/logo.jpg");
 
   // الخلفية
   ctx.fillStyle = "#070d13";
@@ -342,7 +342,7 @@ async function drawCertificate() {
   const W = 1200, H = 630;
   const clown = clowns[chosenClown];
   const photo = await loadImage(clown.img);
-  const logo = await loadImage("logo.jpg");
+  const logo = await loadImage("../outlaw/logo.jpg");
   const FONT = "Lalezar, Tahoma, sans-serif";
 
   // الخلفية
